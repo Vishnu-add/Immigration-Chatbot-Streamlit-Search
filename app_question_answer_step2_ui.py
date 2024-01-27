@@ -35,7 +35,6 @@ def load_titles_info():
     return pd.read_csv('./dataset_latest.csv', low_memory=False, encoding='utf-8')
 
 df = load_titles_info()
-print(df.shape)
 
 @st.cache_data
 def load_embedings():
@@ -86,11 +85,6 @@ def change_title_id(new_title_id):
 
 # OUTPUT FUNCTIONS
 def output_responses(ids, display_similarities=False):
-    print("---------------------------------------------------------")
-    print("In output responses")
-    print("---------------------------------------------------------")
-    
-    print(ids)
     valid_ids = set(df.index) & set(ids)
     if len(valid_ids) < len(ids):
         missing_ids = set(ids) - valid_ids
