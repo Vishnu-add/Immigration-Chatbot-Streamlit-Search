@@ -32,19 +32,19 @@ st.markdown(f"""
 # DATA LOADING AND CACHING
 @st.cache_data
 def load_titles_info():
-    return pd.read_csv('./dataset_latest.csv', low_memory=False, encoding='utf-8')
+    return pd.read_csv('./dataset.csv', low_memory=False, encoding='utf-8')
 
 df = load_titles_info()
 
 @st.cache_data
 def load_embedings():
-    return np.load("./embeddings_matrix_v1_latest.npy")
+    return np.load("./embeddings_matrix_v1.npy")
 
 embedings_matrix = load_embedings()
 
 @st.cache_data
 def load_similarity_matrix():
-    return np.load("./embeddings_matrix_v1_similarities_top_k_latest.npy")
+    return np.load("./embeddings_matrix_v1_similarities_top_k.npy")
 
 similarity = load_similarity_matrix()
 
